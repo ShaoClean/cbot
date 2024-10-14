@@ -1,0 +1,22 @@
+{
+  "name": "cbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "predev": "nvm use",
+    "dev": "electron ./src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "electron": "^32.2.0",
+    "robotjs": "^0.6.0",
+    "tencentcloud-sdk-nodejs": "^4.0.955"
+  },
+  "devDependencies": {
+    "electron-rebuild": "^3.2.9"
+  }
+}
