@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Cbot</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <script>
+            try {
+                globalThis.electron = require('electron');
+            } catch (error) {
+                console.log(error);
+                console.log('没有electron');
+            }
+        </script>
+        <div id="root"></div>
+        <script src="/src/main.jsx" type="module"></script>
+        <!-- <script src="./src/renderer.js" type="module"></script> -->
+    </body>
+</html>

@@ -21,7 +21,9 @@ app.whenReady().then(() => {
         width: 600,
         height: 700,
         webPreferences: {
-            preload: path.join(__dirname, 'preload.js'),
+            nodeIntegration: true,
+            contextIsolation: false,
+            webSecurity: false,
         },
         show: false,
     });
@@ -35,16 +37,12 @@ app.whenReady().then(() => {
         },
     ]);
 
-    // ipcMain.on('show-translate-result', async (event, pathList) => {
-    //     console.log('path:', pathList);
-
-    // });
-
     const icoPath = path.join(__dirname, 'icon.png');
     const tray = new Tray(icoPath);
     tray.setContextMenu(menu);
 
-    win?.webContents?.openDevTools();
+    win.loadURL('http://localhost:9090');
+
     globalShortcut.register('Alt+Shift+q', () => {
         // 按下 Ctrl 键
         robot.keyToggle('control', 'down');
@@ -62,12 +60,14 @@ app.whenReady().then(() => {
             client.TextTranslate({ SourceText: clipboardContent, Source: 'auto', Target: 'en', ProjectId: 0 }, (err, res) => {
                 console.log('translate err', err);
                 console.log('translate res', res);
-                win.loadFile('./result.html');
-
-                setTimeout(() => {
-                    win.webContents.send('show-translate-result', res.TargetText);
+                win.webContents.send('showTranslateResult', {
+                    origin: clipboardContent,
+                    result: res.TargetText,
+                });
+                if (!win.isVisible()) {
                     win.show();
-                }, 1000);
+                    win?.webContents?.openDevTools();
+                }
             });
         }, 100); // 按下 C 键后延迟 100ms
 

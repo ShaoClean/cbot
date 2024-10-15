@@ -2,21 +2,29 @@
   "name": "cbot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "homepage": ".",
   "scripts": {
     "predev": "nvm use",
-    "dev": "electron ./src/index.js"
+    "dev:electron": "electron ./src/index.js",
+    "dev:front": "vite",
+    "dev": "concurrently \"npm run dev:front \" \"npm run dev:electron\" "
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "antd": "^5.21.4",
     "dotenv": "^16.4.5",
     "electron": "^32.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "robotjs": "^0.6.0",
-    "tencentcloud-sdk-nodejs": "^4.0.955"
+    "tencentcloud-sdk-nodejs": "^4.0.955",
+    "vite": "^5.4.9"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.2",
+    "concurrently": "^9.0.1",
     "electron-rebuild": "^3.2.9"
   }
 }

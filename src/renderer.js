@@ -1,6 +1,6 @@
-/**
- * epg解密完成回调
- */
+import ReactDOM from 'react-dom/client';
+import App from './App';
+
 window.electronAPI.showTranslateResult((event, resList) => {
     console.log('resList', resList);
     const body = document.querySelector('body');
@@ -12,3 +12,5 @@ window.electronAPI.showTranslateResult((event, resList) => {
     div.appendChild(p);
     body.appendChild(div);
 });
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
