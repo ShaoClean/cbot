@@ -9,6 +9,10 @@ export const registerAll = win => {
             if (!win?.isVisible()) {
                 win.show();
             }
+            if (!win.isFocused()) {
+                win.setAlwaysOnTop(true);
+                win.focus();
+            }
         }, 20);
     });
 
