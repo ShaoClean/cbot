@@ -8,7 +8,6 @@ export const createCbotMainWindow = () => {
     const VITE_DEV_SERVER_URL = process.env.VITE_DEV_SERVER_URL;
     const RENDERER_DIST = path.join(process.env.APP_ROOT, '..', 'dist');
     const indexHtml = path.join(RENDERER_DIST, 'index.html');
-    console.log('process.env.APP_ROOT', process.env.APP_ROOT);
 
     const win = new BrowserWindow({
         width: 375,
