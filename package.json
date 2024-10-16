@@ -2,13 +2,11 @@
   "name": "cbot",
   "version": "1.0.0",
   "description": "",
-  "homepage": ".",
+  "main": "./src/index.js",
   "type": "module",
   "scripts": {
     "prepare": "husky",
-    "dev:electron": "electron ./src/index.js",
-    "dev:front": "vite",
-    "dev": "concurrently \"npm run dev:front \" \"npm run dev:electron\" "
+    "dev": "vite"
   },
   "keywords": [],
   "author": "",
@@ -21,15 +19,15 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "robotjs": "^0.6.0",
-    "tencentcloud-sdk-nodejs": "^4.0.955",
-    "vite": "^5.4.9"
+    "tencentcloud-sdk-nodejs": "^4.0.955"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@vitejs/plugin-react": "^4.3.2",
-    "concurrently": "^9.0.1",
     "electron-rebuild": "^3.2.9",
-    "husky": "^9.1.6"
+    "husky": "^9.1.6",
+    "vite": "^5.4.9",
+    "vite-plugin-electron": "^0.28.8"
   }
 }
