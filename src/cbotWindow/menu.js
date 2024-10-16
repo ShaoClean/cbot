@@ -1,4 +1,4 @@
-import { Menu } from 'electron';
+import { Menu, app } from 'electron';
 
 export const defineCbotMenue = win => {
     Menu.setApplicationMenu(null);
@@ -7,6 +7,13 @@ export const defineCbotMenue = win => {
             label: '显示主窗口',
             click: () => {
                 win.show();
+            },
+        },
+        {
+            label: '退出',
+            click: () => {
+                win.destroy();
+                app.quit();
             },
         },
     ]);

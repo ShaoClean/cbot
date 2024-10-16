@@ -1,4 +1,4 @@
-import { BrowserWindow } from 'electron';
+import { BrowserWindow, app } from 'electron';
 import { defineCbotMenue } from './menu.js';
 import { createCbotTray } from './tray.js';
 import { registerAll } from '../shortcut/index.js';
@@ -23,4 +23,11 @@ export const createCbotMainWindow = () => {
     registerAll(win);
 
     win.loadURL('http://localhost:9090');
+
+    win.on('close', event => {
+        if (!app.isQuitting) {
+            event.preventDefault();
+            win.hide();
+        }
+    });
 };
