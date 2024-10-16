@@ -14,7 +14,7 @@ const client = new TranslateClient({
 
 export const textTranslate = () => {
     return new Promise(async resolve => {
-        const selectContent = getSelectContent();
+        const selectContent = await getSelectContent();
 
         client.TextTranslate({ SourceText: selectContent, Source: 'auto', Target: 'zh', ProjectId: 0 }, (err, res) => {
             console.log('translate err', err);

@@ -9,7 +9,7 @@ export const registerAll = win => {
             if (!win?.isVisible()) {
                 win.show();
             }
-        }, 50);
+        }, 20);
     });
 
     globalShortcut.register('Ctrl+Shift+q', async () => {
