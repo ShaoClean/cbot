@@ -1,5 +1,8 @@
 import dotenv from 'dotenv';
-dotenv.config();
+import path from 'path';
+const env = process.env.NODE_ENV === 'development' ? 'development' : 'production';
+console.log('!!!env', env);
+dotenv.config({ path: path.join(process.env.APP_ROOT, '..', '.env.' + env) });
 import tencentcloud from 'tencentcloud-sdk-nodejs';
 import { getSelectContent } from '../../../utils/getSelectContext.js';
 

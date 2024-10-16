@@ -1,13 +1,8 @@
 import { Tray } from 'electron';
-import path, { dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-// 获取当前文件的完整路径
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import path from 'path';
 
 export const createCbotTray = () => {
-    const icoPath = path.join(__dirname, '..', 'assets', 'icon.png');
+    const icoPath = path.join(process.env.APP_ROOT, '..', 'public', 'icon.png');
 
     return new Tray(icoPath);
 };

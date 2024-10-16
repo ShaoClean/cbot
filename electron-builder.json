@@ -1,0 +1,14 @@
+{
+    "directories": {
+        "output": "./release"
+    },
+    "buildDependenciesFromSource": true,
+    "npmRebuild": true,
+    "asar": false,
+    "files": [
+        "dist-electron",
+        "dist",
+        "public",
+        ".env.production"
+    ]
+}
