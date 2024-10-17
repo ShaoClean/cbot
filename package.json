@@ -7,7 +7,7 @@
   "scripts": {
     "prepare": "husky",
     "dev": "vite",
-    "build": "vite build && electron-builder"
+    "build": "vite build && electron-builder --publish never"
   },
   "keywords": [],
   "author": "",
